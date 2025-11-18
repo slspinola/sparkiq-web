@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SparkIQ - Industrial Digital Transformation in Weeks, Not Years</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #2C3E50;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .container-wide {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2B7FE8 0%, #3FC4E8 100%);
+            color: white;
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero-subtitle {
+            font-size: 22px;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+        
+        .cta-container {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #2B7FE8;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 60px 0;
+            margin-top: -40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(45deg, #2B7FE8 0%, #3FC4E8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 15px;
+            color: #5A6C7D;
+            font-weight: 500;
+        }
+        
+        /* Problem Section */
+        .problem {
+            padding: 100px 0;
+            background: #F8F9FA;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #2B7FE8 0%, #3FC4E8 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .section-header h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 16px;
+        }
+        
+        .section-header p {
+            font-size: 18px;
+            color: #5A6C7D;
+            line-height: 1.6;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-left: 4px solid #ef4444;
+        }
+        
+        .problem-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2C3E50;
+            margin-bottom: 12px;
+        }
+        
+        .problem-card p {
+            font-size: 15px;
+            color: #5A6C7D;
+            line-height: 1.6;
+        }
+        
+        /* Solution Section */
+        .solution {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 60px;
+        }
+        
+        .solution-card {
+            background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(45deg, #2B7FE8 0%, #3FC4E8 100%);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(43, 127, 232, 0.15);
+        }
+        
+        .solution-card:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .solution-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(45deg, #2B7FE8 0%, #3FC4E8 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .solution-icon .material-icons-outlined {
+            font-size: 28px;
+            color: white;
+        }
+        
+        .solution-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2C3E50;
+            margin-bottom: 12px;
+        }
+        
+        .solution-card p {
+            font-size: 15px;
+            color: #5A6C7D;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .solution-card ul {
+            list-style: none;
+            margin-top: 16px;
+        }
+        
+        .solution-card li {
+            font-size: 14px;
+            color: #5A6C7D;
+            margin-bottom: 8px;
+            padding-left: 24px;
+            position: relative;
+        }
+        
+        .solution-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3FC4E8;
+            font-weight: bold;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2B7FE8 0%, #3FC4E8 100%);
+            color: white;
+        }
+        
+        .timeline {
+            max-width: 900px;
+            margin: 60px auto 0;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-number {
+            position: absolute;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            background: white;
+            color: #2B7FE8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 24px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .timeline-content h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-content p {
+            font-size: 15px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 100px 0;
+            background: #F8F9FA;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+        
+        .pricing-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .pricing-card.featured {
+            background: linear-gradient(135deg, #2B7FE8 0%, #3FC4E8 100%);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(43, 127, 232, 0.3);
+        }
+        
+        .pricing-card:hover:not(.featured) {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            right: 40px;
+            background: #10b981;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .pricing-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .pricing-card .price {
+            font-size: 48px;
+            font-weight: 800;
+            margin: 20px 0;
+        }
+        
+        .pricing-card .period {
+            font-size: 16px;
+            opacity: 0.7;
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            margin: 32px 0;
+        }
+        
+        .pricing-card li {
+            margin-bottom: 16px;
+            padding-left: 28px;
+            position: relative;
+            font-size: 15px;
+        }
+        
+        .pricing-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .pricing-card:not(.featured) li::before {
+            color: #3FC4E8;
+        }
+        
+        .pricing-card.featured li::before {
+            color: white;
+        }
+        
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .pricing-card:not(.featured) .btn {
+            background: linear-gradient(45deg, #2B7FE8 0%, #3FC4E8 100%);
+            color: white;
+        }
+        
+        .pricing-card.featured .btn {
+            background: white;
+            color: #2B7FE8;
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+        
+        .testimonial-card {
+            background: #F8F9FA;
+            padding: 32px;
+            border-radius: 16px;
+            border-left: 4px solid #3FC4E8;
+        }
+        
+        .testimonial-quote {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #2C3E50;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #2B7FE8 0%, #3FC4E8 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .author-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2C3E50;
+            margin-bottom: 4px;
+        }
+        
+        .author-info p {
+            font-size: 14px;
+            color: #5A6C7D;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2B7FE8 0%, #3FC4E8 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        
+        .cta-section p {
+            font-size: 20px;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 100px 0;
+            background: #F8F9FA;
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+        
+        .faq-item {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2C3E50;
+            margin-bottom: 12px;
+        }
+        
+        .faq-answer {
+            font-size: 15px;
+            color: #5A6C7D;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2C3E50;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-brand h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .footer-brand p {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        
+        .footer-links h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .section-header h2 {
+                font-size: 32px;
+            }
+            
+            .cta-section h2 {
+                font-size: 32px;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 70px;
+            }
+            
+            .timeline-number {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Sparkplug B Certified • ISO/IEC 2023</div>
+                <h1>Transform Your Factory in Weeks, Not Years</h1>
+                <p class="hero-subtitle">SparkIQ automatically connects all industrial equipment and transforms data into actionable insights with AI. Reduce downtime by 30-40% and improve OEE by 15-20%.</p>
+                <div class="cta-container">
+                    <a href="#demo" class="btn btn-primary">
+                        <span class="material-icons-outlined">play_circle</span>
+                        Watch Live Demo
+                    </a>
+                    <a href="#pricing" class="btn btn-secondary">
+                        <span class="material-icons-outlined">calculate</span>
+                        Calculate ROI
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number"><10min</div>
+                    <div class="stat-label">Complete asset inventory</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">450+</div>
+                    <div class="stat-label">Protocols supported</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">70%</div>
+                    <div class="stat-label">Bandwidth reduction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">12-18</div>
+                    <div class="stat-label">Months to ROI</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">THE CHALLENGE</span>
+                <h2>85% of Industrial Machines Are Not Connected</h2>
+                <p>Meanwhile, your competitors are already gaining competitive advantage with real-time data.</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>Months of Manual Integration</h3>
+                    <p>Configuring each PLC, SCADA, and sensor manually consumes months of work and delays critical projects.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Isolated and Inaccessible Data</h3>
+                    <p>Valuable information is trapped in incompatible legacy systems, preventing informed decisions.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Unplanned Downtime Costs Millions</h3>
+                    <p>Without real-time visibility, problems are only discovered after causing significant losses.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Incompatible Protocols</h3>
+                    <p>Modbus, OPC UA, PROFINET, S7... each vendor has their proprietary protocol.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Equipment 30-60 Years Old</h3>
+                    <p>Critical legacy machines were not designed for digital connectivity.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Unpredictable Costs</h3>
+                    <p>Digitalization projects constantly exceed budgets and timelines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container-wide">
+            <div class="section-header">
+                <span class="section-badge">THE SOLUTION</span>
+                <h2>True Industrial Plug-and-Play with Integrated AI</h2>
+                <p>SparkIQ automatically connects any equipment and adds artificial intelligence to transform data into actions.</p>
+            </div>
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span class="material-icons-outlined">search</span>
+                    </div>
+                    <h3>Auto-Discovery in Minutes</h3>
+                    <p>Automatically discover all devices on your industrial network. Sparkplug B Birth Certificates instantly reveal complete tag hierarchy.</p>
+                    <ul>
+                        <li>Claroty Edge: <10 minutes for complete inventory</li>
+                        <li>450+ protocols automatically identified</li>
+                        <li>Zero operational impact with passive scanning</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span class="material-icons-outlined">sync_alt</span>
+                    </div>
+                    <h3>Universal Protocol Translation</h3>
+                    <p>Intelligent Edge Gateways convert any legacy protocol to standardized Sparkplug B.</p>
+                    <ul>
+                        <li>Modbus, OPC UA, S7, PROFINET, EtherNet/IP</li>
+                        <li>Automatic data normalization</li>
+                        <li>Report-by-exception reduces bandwidth 70%</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span class="material-icons-outlined">hub</span>
+                    </div>
+                    <h3>Unified Namespace (UNS)</h3>
+                    <p>All company data in a single centralized space with ISA-95 structure.</p>
+                    <ul>
+                        <li>Enterprise single source of truth</li>
+                        <li>Decoupled and scalable Pub/Sub</li>
+                        <li>HiveMQ Enterprise or EMQX open-source</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span class="material-icons-outlined">psychology</span>
+                    </div>
+                    <h3>Integrated AI & LLMs</h3>
+                    <p>Intelligent processing automatically transforms raw data into actionable insights.</p>
+                    <ul>
+                        <li>Data Quality: anomaly detection, validation, automatic correction</li>
+                        <li>Data Cleaning: noise removal, normalization, deduplication</li>
+                        <li>Interpretation: contextual analysis, pattern recognition, correlations</li>
+                        <li>Aggregation: intelligent summarization, prioritization, relevance filtering</li>
+                        <li>Intelligent Alerts: critical events, urgency classification, recommendations</li>
+                        <li>Predictive Maintenance: Llama 3.2 3B edge, 38% downtime reduction</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span class="material-icons-outlined">shield</span>
+                    </div>
+                    <h3>IEC 62443 Security</h3>
+                    <p>Certified architecture for critical industrial environments from day one.</p>
+                    <ul>
+                        <li>Zones & Conduits by design</li>
+                        <li>TLS 1.3 end-to-end encryption</li>
+                        <li>Granular RBAC and complete audit logs</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span class="material-icons-outlined">speed</span>
+                    </div>
+                    <h3>Proven ROI</h3>
+                    <p>Measurable results in weeks, not years. Return on investment in 12-18 months.</p>
+                    <ul>
+                        <li>15-20% OEE improvement</li>
+                        <li>30-40% unplanned downtime reduction</li>
+                        <li>35-50% faster troubleshooting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge" style="background: white; color: #2B7FE8;">HOW IT WORKS</span>
+                <h2>From Discovery to Insight in 6 Steps</h2>
+                <p>Layered architecture designed for simplicity and scalability.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3>Auto-Discovery</h3>
+                        <p>Passive and active scanning identifies all industrial devices. PROFINET DCP, EtherNet/IP CIP, OPC UA Discovery Servers work automatically.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3>Edge Gateways</h3>
+                        <p>Automatic translation of 450+ protocols to Sparkplug B. Data normalization and ultra-efficient Protocol Buffers encoding.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3>MQTT Broker (UNS)</h3>
+                        <p>Centralized Unified Namespace with ISA-95 structure. HiveMQ Enterprise or EMQX ensure high availability and scalability.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h3>Data Persistence</h3>
+                        <p>Time-series databases (InfluxDB, TimescaleDB) and Vector DBs (Milvus) for history and AI embeddings.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">5</div>
+                    <div class="timeline-content">
+                        <h3>AI Processing</h3>
+                        <p>LLMs (Llama 3.2, GPT-4) analyze, clean, and interpret data. RAG with technical manuals for precise recommendations.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">6</div>
+                    <div class="timeline-content">
+                        <h3>Business Applications</h3>
+                        <p>SCADA dashboards, MES/ERP integration, BI analytics, Factory Copilot with natural language interface.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Applications Section -->
+    <section class="solution" style="background: #F8F9FA;">
+        <div class="container-wide">
+            <div class="section-header">
+                <span class="section-badge">CONSUMER APPLICATIONS</span>
+                <h2>Systems Consuming Processed Data from UNS</h2>
+                <p>Clean, contextualized, and AI-enriched data ready for enterprise applications.</p>
+            </div>
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span class="material-icons-outlined">dashboard</span>
+                    </div>
+                    <h3>MES Dashboard</h3>
+                    <p>Real-time production monitoring and control with complete operational visibility.</p>
+                    <ul>
+                        <li>Real-time production monitoring</li>
+                        <li>Automatic OEE tracking</li>
+                        <li>Production analytics and KPIs</li>
+                        <li>Work order management</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span class="material-icons-outlined">analytics</span>
+                    </div>
+                    <h3>BI System</h3>
+                    <p>Advanced data analysis with executive reports and customizable KPI dashboards.</p>
+                    <ul>
+                        <li>Historical data analysis and trends</li>
+                        <li>Automatic executive reports</li>
+                        <li>Customizable KPI dashboards</li>
+                        <li>Multi-site benchmarking</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span class="material-icons-outlined">build</span>
+                    </div>
+                    <h3>Maintenance</h3>
+                    <p>Integrated predictive maintenance system with complete asset and work order management.</p>
+                    <ul>
+                        <li>AI-powered predictive maintenance</li>
+                        <li>Work order management</li>
+                        <li>Asset tracking and history</li>
+                        <li>Maintenance history logs</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span class="material-icons-outlined">bolt</span>
+                    </div>
+                    <h3>Energy Management</h3>
+                    <p>Intelligent optimization of energy consumption with cost analysis and peak shaving.</p>
+                    <ul>
+                        <li>Energy consumption optimization</li>
+                        <li>Automatic peak shaving</li>
+                        <li>Cost analysis by line/product</li>
+                        <li>ESG compliance tracking</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span class="material-icons-outlined">cloud</span>
+                    </div>
+                    <h3>ERP Cloud</h3>
+                    <p>Complete enterprise integration with financial planning and supply chain management.</p>
+                    <ul>
+                        <li>Total enterprise integration</li>
+                        <li>Supply chain management</li>
+                        <li>Integrated financial planning</li>
+                        <li>Bidirectional synchronization</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span class="material-icons-outlined">chat</span>
+                    </div>
+                    <h3>Factory Copilot</h3>
+                    <p>Intelligent assistant with natural language interface for queries and troubleshooting.</p>
+                    <ul>
+                        <li>Natural language interface</li>
+                        <li>Real-time AI recommendations</li>
+                        <li>Guided troubleshooting</li>
+                        <li>Technical manual access via RAG</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">PLANS</span>
+                <h2>Choose the Ideal Plan for Your Operation</h2>
+                <p>Total cost and timeline transparency. No surprises.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>MVP / Proof of Concept</h3>
+                    <div class="price">$60k<span class="period">-180k</span></div>
+                    <p style="opacity: 0.7; margin-bottom: 24px;">4-12 weeks</p>
+                    <ul>
+                        <li>1-2 non-critical pilot assets</li>
+                        <li>Initial edge gateway deployment</li>
+                        <li>Basic MQTT broker setup</li>
+                        <li>Demonstration dashboards</li>
+                        <li>Demonstrable ROI calculation</li>
+                        <li>HiveMQ Cloud trial (15 days)</li>
+                        <li>HighByte Intelligence Hub (2h free)</li>
+                    </ul>
+                    <a href="#contact" class="btn">Schedule Demo</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">MOST POPULAR</div>
+                    <h3>Production</h3>
+                    <div class="price">$240k<span class="period">-600k</span></div>
+                    <p style="opacity: 0.9; margin-bottom: 24px;">3-6 months</p>
+                    <ul>
+                        <li>Complete production line</li>
+                        <li>HA/DR clustering for MQTT</li>
+                        <li>ISA-95 compliant UNS design</li>
+                        <li>MES/ERP integration</li>
+                        <li>IEC 62443 security hardening</li>
+                        <li>Time-series DB and Vector DB</li>
+                        <li>AI layer with edge + cloud LLMs</li>
+                        <li>Training and change management</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">$600k<span class="period">-2.4M+</span></div>
+                    <p style="opacity: 0.7; margin-bottom: 24px;">12-24 months</p>
+                    <ul>
+                        <li>Global multi-site deployment</li>
+                        <li>HiveMQ Enterprise clustering</li>
+                        <li>Complete AI/ML layer</li>
+                        <li>Digital twins (AWS TwinMaker)</li>
+                        <li>Factory Copilot deployment</li>
+                        <li>Data lakes and advanced analytics</li>
+                        <li>24/7 dedicated support</li>
+                        <li>99.9% uptime SLA guaranteed</li>
+                    </ul>
+                    <a href="#contact" class="btn">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">SUCCESS STORIES</span>
+                <h2>Real Results from Real Customers</h2>
+                <p>Industrial companies are already transforming operations with SparkIQ.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"We achieved complete inventory of 5000+ devices in less than 10 minutes. Something that would take months manually. SparkIQ revealed blind spots we didn't even know existed."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PF</div>
+                        <div class="author-info">
+                            <h4>Director of Operations</h4>
+                            <p>Pharmaceutical Company • Fortune 500</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"AI-powered predictive maintenance reduced our unplanned downtime by 38%. ROI paid for itself in 14 months. Now we're expanding to all lines."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DM</div>
+                        <div class="author-info">
+                            <h4>Plant Manager</h4>
+                            <p>Automotive Manufacturer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Perfect bridging between OPC-UA and Sparkplug. We improved mechanical availability by 6.5%. The interface is intuitive and technical support is exceptional."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">GT</div>
+                        <div class="author-info">
+                            <h4>Engineering Lead</h4>
+                            <p>Food Manufacturing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Transform Your Factory?</h2>
+            <p>Schedule a personalized demo and see SparkIQ in action with your own data.</p>
+            <div class="cta-container">
+                <a href="#" class="btn btn-primary">
+                    <span class="material-icons-outlined">video_call</span>
+                    Schedule Demo
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <span class="material-icons-outlined">description</span>
+                    Download Whitepaper
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">FAQ</span>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3 class="faq-question">Is "plug-and-play" really in hours?</h3>
+                    <p class="faq-answer">Partially true. Protocol-level auto-discovery (Sparkplug B Birth certificates, network scanning) works in minutes to hours. But complete business value - with ISA-95 contextualization, IEC 62443 security hardening, and MES/ERP integration - requires 4-12 weeks minimum.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Does it work with our 30-year-old legacy equipment?</h3>
+                    <p class="faq-answer">Yes. Our edge gateways (EMQX Neuron, Ignition Edge, Litmus) support 450+ industrial protocols including Modbus RTU/TCP, PROFIBUS, PROFINET, S7, DeviceNet. If the equipment communicates via any protocol, we can connect it.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Is it safe for critical OT environments?</h3>
+                    <p class="faq-answer">Absolutely. We strictly follow IEC 62443 standard with Zones & Conduits, TLS 1.3 encryption, granular RBAC, and safe scanning methods (TCP connect, not SYN scans). Claroty Edge performs discovery in <10 min with zero operational impact.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">What's the typical ROI and timeline?</h3>
+                    <p class="faq-answer">Customers report: 15-20% OEE improvement, 30-40% downtime reduction, 35-50% faster troubleshooting. Typical ROI in 12-18 months. MVP in 4-12 weeks ($60-180k), production in 3-6 months ($240-600k).</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">How does the AI/LLM layer work?</h3>
+                    <p class="faq-answer">LLMs subscribe to UNS, perform data quality assurance, noise cleaning, anomaly detection, and predictive maintenance. Hybrid deployment: Llama 3.2 3B on edge (10-100ms latency), Llama 70B on-premise, GPT-4 cloud for complex analysis. RAG with technical manuals ensures zero hallucinations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>SparkIQ</h3>
+                    <p>Industrial digital transformation with Sparkplug B, Unified Namespace, and Artificial Intelligence. ISO/IEC 2023 certified.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#solution">Features</a></li>
+                        <li><a href="#pricing">Plans</a></li>
+                        <li><a href="#">Technical Documentation</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Whitepapers</a></li>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SparkIQ. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
